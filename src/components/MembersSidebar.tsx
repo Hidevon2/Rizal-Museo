@@ -3,13 +3,12 @@
 import { motion } from "framer-motion";
 
 const members = [
-  { name: "Juan D. Dela Cruz", role: "Mananaliksik ng Kasaysayan" },
-  { name: "Maria L. Santos", role: "Tagapangasiwa ng Multimedia" },
-  { name: "Jose R. Mendoza", role: "Disenyador ng Web" },
-  { name: "Ana C. Villanueva", role: "Tagasulat ng Nilalaman" },
-  { name: "Pedro S. Reyes", role: "Tagapag-ayos ng Datos" },
-  { name: "Luisa T. Ramirez", role: "Dalubhasa sa Disenyo" },
-  { name: "Carlos B. Fernandez", role: "Tagapamahala ng Proyekto" },
+  { name: "Terrence sumagang", role: "Mananaliksik ng Kasaysayan" },
+  { name: "Klaudin Inoc", role: "Tagapangasiwa ng Multimedia" },
+  { name: "Devon T. Descipulo", role: "Disenyador ng Web" },
+  { name: "Melquisidec Sacristan", role: "Tagasulat ng Nilalaman" },
+  { name: " Elde Vasquez", role: "Tagapag-ayos ng Datos" },
+  { name: "Renante Arante", role: "Dalubhasa sa Disenyo" },
 ];
 
 export default function MembersSidebar() {
