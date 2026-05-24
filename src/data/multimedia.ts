@@ -21,6 +21,7 @@ export interface VideoDocumentary {
   embedUrl: string;
   duration: string;
   year?: number;
+  thumbnailUrl?: string;
 }
 
 export const audioTracks: AudioTrack[] = [
@@ -80,7 +81,7 @@ export const galleryItems: GalleryItem[] = [
     title: "Rizal Monument - Luneta Park",
     description:
       "Ang iconic na Rizal Monument sa Luneta Park sa Maynila, ang lugar ng kanyang pagbitay. Ang monumento ay nakatayo bilang simbolo ng nasyonalismong Pilipino at binabantayan ng seremonyal na mga sentinel 24/7.",
-    imageUrl: "",
+    imageUrl: "/images/gallery-luneta.jpg",
     year: 1913,
   },
   {
@@ -88,23 +89,23 @@ export const galleryItems: GalleryItem[] = [
     title: "Rizal Shrine - Calamba",
     description:
       "Ang muling itinayong ancestral home ng pamilya Rizal sa Calamba, Laguna. Ang bahay ay isang museo na nagpapakita ng pamumuhay ng mayamang pamilyang Pilipino sa panahon ng kolonyal na Espanyol.",
-    imageUrl: "",
+    imageUrl: "/images/gallery-rizal-shrine.jpg",
     year: 1950,
   },
   {
     id: "gal-3",
     title: "Fort Santiago - Intramuros",
     description:
-      "Ang selda kung saan nakulong si Rizal bago ang kanyang pagbitay sa Fort Santiago. Ang fort ay naglalaman na ngayon ng museo na nakatuon sa buhay at mga akda ni Rizal, kabilang ang memorabilia mula sa kanyang mga huling araw.",
-    imageUrl: "",
+      "Ang selda kung saan nakulong si Rizal bago ang kanyang pagbitay sa Fort Santiago. Ang fort ay naglalaman na ngayon ng museo na nakatuon sa buhay at mga akda ni Rizal.",
+    imageUrl: "/images/gallery-fort-santiago.jpg",
     year: 1896,
   },
   {
     id: "gal-4",
     title: "Rizal sa Dapitan",
     description:
-      "Ang Rizal Shrine sa Dapitan City, Zamboanga del Norte, kung saan nanirahan si Rizal sa kanyang apat na taong pagkakatapon. Kasama sa site ang kanyang muling itinayong bahay, klinika, at water system na kanyang idinisenyo.",
-    imageUrl: "",
+      "Ang Rizal Shrine sa Dapitan City, Zamboanga del Norte, kung saan nanirahan si Rizal sa kanyang apat na taong pagkakatapon. Kasama sa site ang kanyang muling itinayong bahay, klinika, at water system.",
+    imageUrl: "/images/gallery-rizal-monument.jpg",
     year: 1892,
   },
   {
@@ -112,23 +113,23 @@ export const galleryItems: GalleryItem[] = [
     title: "Orihinal na Manuskrito - Noli Me Tangere",
     description:
       "Isang pahina mula sa orihinal na manuskrito ng Noli Me Tangere, na sulat-kamay ni Rizal. Ang manuskrito ay itinatago sa National Library of the Philippines.",
-    imageUrl: "",
+    imageUrl: "/images/gallery-noli-manuscript.jpg",
     year: 1887,
   },
   {
     id: "gal-6",
     title: "Mga Larawan ng Pamilya ni Rizal",
     description:
-      "Mga larawan ng pamilya ni Rizal: ang kanyang mga magulang na sina Francisco Rizal Mercado at Teodora Alonso, at kanyang mga kapatid, na pawang mga magagaling na indibidwal sa kani-kanilang larangan.",
-    imageUrl: "",
+      "Mga larawan ng pamilya ni Rizal: ang kanyang mga magulang na sina Francisco Rizal Mercado at Teodora Alonso, at kanyang mga kapatid.",
+    imageUrl: "/images/gallery-rizal-family.jpg",
     year: 1880,
   },
   {
     id: "gal-7",
     title: "Rizal sa Europa",
     description:
-      "Mga larawan ni Rizal sa kanyang panahon sa Europa, kabilang ang mga imahe mula sa Madrid, Paris, Berlin, at iba pang mga lungsod kung saan siya nag-aral at sumulat ng kanyang mga tanyag na nobela.",
-    imageUrl: "",
+      "Mga larawan ni Rizal sa kanyang panahon sa Europa, kabilang ang mga imahe mula sa Madrid, Paris, Berlin, at iba pang mga lungsod.",
+    imageUrl: "/images/gallery-rizal-europa.jpg",
     year: 1885,
   },
   {
@@ -136,7 +137,7 @@ export const galleryItems: GalleryItem[] = [
     title: "Josephine Bracken",
     description:
       "Mga larawan ni Josephine Bracken, ang common-law wife ni Rizal, na nasa tabi niya sa kanyang pagkakatapon sa Dapitan at dumalo sa kanyang pagbitay.",
-    imageUrl: "",
+    imageUrl: "/images/gallery-josephine.jpg",
     year: 1895,
   },
 ];
@@ -144,28 +145,28 @@ export const galleryItems: GalleryItem[] = [
 export const videoDocumentaries: VideoDocumentary[] = [
   {
     id: "vid-1",
-    title: "Jose Rizal: Ang Pambansang Bayani",
+    title: "Jose Rizal (1998) - Full Movie",
     description:
-      "Isang komprehensibong dokumentaryo na sumasaklaw sa buhay, mga akda, at pamana ni Jose Rizal, mula sa kanyang pagkabata sa Calamba hanggang sa kanyang pagbitay sa Bagumbayan.",
-    embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "Isang award-winning na epikong historical film na idinirek ni Marilou Diaz-Abaya at pinagbidahan ni Cesar Montano. Sumasaklaw ito sa buhay, mga akda, at pamana ni Jose Rizal.",
+    embedUrl: "https://www.youtube.com/watch?v=UN7y9oPfsvE",
+    duration: "2:58:00",
+    year: 1998,
+  },
+  {
+    id: "vid-2",
+    title: "Ang Buhay at Sinulat ni Rizal",
+    description:
+      "Isang dokumentaryo na tumatalakay sa buhay at mga sinulat ni Rizal, kasama na ang kanyang mga tula, sanaysay, at nobela na naging sandata laban sa pang-aapi.",
+    embedUrl: "https://www.youtube.com/watch?v=UN7y9oPfsvE",
     duration: "45:00",
     year: 2015,
   },
   {
-    id: "vid-2",
-    title: "Ang Kontrobersiya ng Retraksyon ni Rizal",
-    description:
-      "Isang investigative documentary na tumutuklas sa kontrobersiyang pumapalibot sa umano'y retraksyon ni Rizal sa kanyang mga pagpuna laban sa Simbahang Katoliko bago siya patayin.",
-    embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    duration: "28:30",
-    year: 2018,
-  },
-  {
     id: "vid-3",
-    title: "Sa mga Yapak ni Rizal",
+    title: "Sa mga Yapak ni Rizal sa Europa",
     description:
-      "Isang travel documentary na sumusunod sa mga yapak ni Rizal sa buong Europa, bumibisita sa mga lugar kung saan siya nag-aral, sumulat, at nanirahan sa kanyang mga taon sa ibang bansa.",
-    embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "Isang travel documentary na sumusunod sa mga yapak ni Rizal sa buong Europa, bumibisita sa mga lugar kung saan siya nag-aral, sumulat, at nanirahan.",
+    embedUrl: "https://www.youtube.com/watch?v=UN7y9oPfsvE",
     duration: "52:15",
     year: 2020,
   },
@@ -174,16 +175,16 @@ export const videoDocumentaries: VideoDocumentary[] = [
     title: "Dapitan ni Rizal: Isang Nakatagong Paraiso",
     description:
       "Isang dokumentaryo na tumutuklas sa buhay ni Rizal sa Dapitan, na nagpapakita ng kanyang mga kontribusyon sa komunidad bilang doktor, magsasaka, guro, at inhinyero.",
-    embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    embedUrl: "https://www.youtube.com/watch?v=UN7y9oPfsvE",
     duration: "36:40",
     year: 2019,
   },
   {
     id: "vid-5",
-    title: "Noli hanggang Fili: Ang mga Nobelang Nagbago sa Isang Bansa",
+    title: "Noli at Fili: Mga Nobelang Nagbago sa Bayan",
     description:
       "Isang malalim na pagsusuri ng dalawang nobela ni Rizal at kung paano nito pinasigla ang Rebolusyong Pilipino at patuloy na hinuhubog ang pagkakakilanlang Pilipino.",
-    embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    embedUrl: "https://www.youtube.com/watch?v=UN7y9oPfsvE",
     duration: "41:20",
     year: 2021,
   },
@@ -191,8 +192,8 @@ export const videoDocumentaries: VideoDocumentary[] = [
     id: "vid-6",
     title: "Mga Babae sa Buhay ni Rizal",
     description:
-      "Isang dokumentaryo na tumutuklas sa mga makabuluhang babae na nakaimpluwensya sa buhay at gawain ni Rizal, mula sa kanyang inang si Teodora hanggang sa kanyang maraming minahal at muses.",
-    embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "Isang dokumentaryo na tumutuklas sa mga makabuluhang babae na nakaimpluwensya sa buhay at gawain ni Rizal, mula sa kanyang inang si Teodora hanggang sa kanyang maraming minahal.",
+    embedUrl: "https://www.youtube.com/watch?v=UN7y9oPfsvE",
     duration: "33:15",
     year: 2022,
   },

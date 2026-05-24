@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <defs>
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feBlend in="SourceGraphic" mode="multiply" result="noisy"/>
+    </filter>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3c2415"/>
+      <stop offset="50%" stop-color="#2c1810"/>
+      <stop offset="100%" stop-color="#1a0f0a"/>
+    </linearGradient>
+    <linearGradient id="frame" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#c9a84c"/>
+      <stop offset="100%" stop-color="#8a6e1f"/>
+    </linearGradient>
+    <linearGradient id="photo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f5e6c8"/>
+      <stop offset="100%" stop-color="#d4c4a0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer frame -->
+  <rect x="8" y="8" width="384" height="484" rx="4" fill="url(#frame)" stroke="#6e581d" stroke-width="2"/>
+  <rect x="14" y="14" width="372" height="472" rx="3" fill="none" stroke="#f5e6c8/0.3" stroke-width="1"/>
+
+  <!-- Photo area -->
+  <rect x="20" y="20" width="360" height="460" fill="url(#photo)"/>
+
+  <!-- Vintage portrait silhouette - Rizal's profile -->
+  <g transform="translate(200,260)" opacity="0.85">
+    <!-- Head and shoulders silhouette -->
+    <ellipse cx="0" cy="-60" rx="45" ry="55" fill="#3c2415"/>
+    <ellipse cx="0" cy="-15" rx="50" ry="30" fill="#3c2415"/>
+    <rect x="-50" y="-10" width="100" height="80" rx="15" fill="#3c2415"/>
+
+    <!-- Collar / Barong -->
+    <path d="M-30,70 L-20,40 L0,50 L20,40 L30,70 Z" fill="#f5e6c8" stroke="#3c2415" stroke-width="1"/>
+
+    <!-- Hair -->
+    <ellipse cx="-10" cy="-85" rx="40" ry="20" fill="#1a0f0a" transform="rotate(-10)"/>
+    <ellipse cx="-15" cy="-90" rx="35" ry="15" fill="#1a0f0a"/>
+
+    <!-- Glasses (round vintage) -->
+    <circle cx="-12" cy="-65" r="12" fill="none" stroke="#3c2415" stroke-width="1.5"/>
+    <circle cx="12" cy="-65" r="12" fill="none" stroke="#3c2415" stroke-width="1.5"/>
+    <line x1="0" y1="-65" x2="-24" y2="-65" stroke="#3c2415" stroke-width="1"/>
+    <line x1="0" y1="-65" x2="24" y2="-65" stroke="#3c2415" stroke-width="1"/>
+
+    <!-- Eyes -->
+    <circle cx="-10" cy="-64" r="2" fill="#1a0f0a"/>
+    <circle cx="14" cy="-64" r="2" fill="#1a0f0a"/>
+
+    <!-- Nose -->
+    <path d="M2,-60 Q5,-52 2,-48" fill="none" stroke="#1a0f0a" stroke-width="1.5"/>
+
+    <!-- Mouth -->
+    <path d="M-5,-42 Q2,-38 10,-42" fill="none" stroke="#1a0f0a" stroke-width="1"/>
+
+    <!-- Mustache -->
+    <path d="M-10,-45 Q-2,-48 5,-45 Q10,-48 15,-44" fill="none" stroke="#1a0f0a" stroke-width="1.5"/>
+  </g>
+
+  <!-- Paper texture overlay -->
+  <rect x="20" y="20" width="360" height="460" fill="url(#photo)" opacity="0.1" filter="url(#noise)"/>
+
+  <!-- Bottom label -->
+  <rect x="60" y="420" width="280" height="35" fill="#2c1810" opacity="0.9"/>
+  <text x="200" y="442" text-anchor="middle" fill="#c9a84c" font-family="Georgia, serif" font-size="14" font-weight="bold" letter-spacing="2">DR. JOSE RIZAL</text>
+  <text x="200" y="454" text-anchor="middle" fill="#8a6e1f" font-family="Georgia, serif" font-size="8" letter-spacing="1">1861 — 1896</text>
+
+  <!-- Sepia tone overlay -->
+  <rect x="20" y="20" width="360" height="460" fill="#704214" opacity="0.08"/>
+</svg>

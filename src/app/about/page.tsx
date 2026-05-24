@@ -1,10 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
 import Timeline from "@/components/Timeline";
 
 export default function AboutPage() {
+  const [showContributions, setShowContributions] = useState(false);
   return (
     <div className="pt-24 lg:pt-28">
       <section className="py-16 lg:py-20 relative">
@@ -116,16 +118,30 @@ export default function AboutPage() {
 
       <AnimatedSection className="py-16 lg:py-20 relative">
         <div className="max-w-5xl mx-auto px-4">
-          <div className="vintage-card p-6 md:p-10 text-center border-gold/30">
-            <h2 className="text-2xl sm:text-3xl font-bold font-display text-foreground mb-4">
-              Mga Kontribusyon sa Nasyonalismong Pilipino
-            </h2>
+          <div
+            onClick={() => setShowContributions(!showContributions)}
+            className="vintage-card p-6 md:p-10 text-center border-gold/30 cursor-pointer group transition-all hover:border-gold/50"
+          >
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <h2 className="text-2xl sm:text-3xl font-bold font-display text-foreground group-hover:text-gold transition-colors">
+                Mga Kontribusyon sa Nasyonalismong Pilipino
+              </h2>
+              <motion.svg
+                animate={{ rotate: showContributions ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+                className="w-5 h-5 text-gold/60 group-hover:text-gold transition-colors shrink-0"
+                fill="none" viewBox="0 0 24 24" stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </motion.svg>
+            </div>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-3xl mx-auto mb-6">
                 Ang pinakamalaking kontribusyon ni Rizal sa nasyonalismong Pilipino ay sa pamamagitan ng
                 kanyang mga akda. Inilantad ng kanyang mga nobela ang mga kawalan ng katarungan ng pananakop
                 ng Espanya at ginising ang kamalayang Pilipino. Ipinakita niya na ang panulat ay maaaring
                 mas matalas kaysa espada, gamit ang dahilan at moral na puwersa upang hamunin ang pang-aapi.
             </p>
+
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
               {[
                 { number: "2", label: "Rebolusyonaryong Nobela", desc: "Na nagpabago ng kasaysayan" },
@@ -139,6 +155,107 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
+
+            <p className="text-gold/50 text-[10px] uppercase tracking-widest mt-6 group-hover:text-gold/70 transition-colors">
+              Pindutin upang {showContributions ? "itago" : "ipakita"} ang lahat ng kontribusyon
+            </p>
+
+            <AnimatePresence>
+              {showContributions && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="overflow-hidden"
+                >
+                  <div className="pt-6 border-t border-gold/10 mt-6 text-left">
+                    <h3 className="text-gold font-semibold font-display text-sm mb-4 text-center">
+                      Lahat ng Kontribusyon ni Jose Rizal
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {[
+                        {
+                          category: "Panitikan",
+                          items: [
+                            "Noli Me Tangere (1887) — naglantad ng katiwalian ng pamahalaang kolonyal",
+                            "El Filibusterismo (1891) — mas madilim na sequela na nanawagan ng rebolusyon",
+                            "Mi Último Adios — huling tula na isinulat bago bitayin",
+                            "Sobre La Indolencia de Los Filipinos — sanaysay tungkol sa katamaran ng Pilipino",
+                            "Filipinas Dentro De Cien Años — hula sa kinabukasan ng Pilipinas",
+                            "Ang Pag-ibig sa Tinubuang Lupa — tula na pumupukaw ng nasyonalismo",
+                          ],
+                        },
+                        {
+                          category: "Repormang Panlipunan",
+                          items: [
+                            "Itinatag ang La Liga Filipina — samahang sibiko para sa pagkakaisa at reporma",
+                            "Naging tinig ng mga Pilipino sa pahayagang La Solidaridad",
+                            "Nangampanya para sa pantay na karapatan sa ilalim ng batas Espanyol",
+                            "Nagpetisyon para sa representasyon ng Pilipinas sa Spanish Cortes",
+                            "Nagtaguyod ng sekularisasyon ng mga parokya",
+                          ],
+                        },
+                        {
+                          category: "Agham at Medisina",
+                          items: [
+                            "Nag-aral at naging sertipikadong ophthalmologist sa Europa",
+                            "Gumamot sa mga may sakit sa mata sa Dapitan nang libre",
+                            "Nagsagawa ng siyentipikong pag-aaral sa flora at fauna ng Pilipinas",
+                            "Nagdisenyo ng water supply system sa Dapitan",
+                            "Nag-ambag sa larangan ng etnolohiya at antropolohiya",
+                          ],
+                        },
+                        {
+                          category: "Edukasyon at Wika",
+                          items: [
+                            "Nagtatag ng paaralan sa Dapitan na nagtuturo ng Ingles at agham",
+                            "Marunong magsalita ng 22 wika (Tagalog, Espanyol, Ingles, Pranses, Aleman, atbp.)",
+                            "Nagsalin ng mga akdang Europeo sa Tagalog",
+                            "Nag-aral ng mga katutubong wika ng Pilipinas",
+                            "Nagbigay-diin sa kahalagahan ng edukasyon para sa kababaihan",
+                          ],
+                        },
+                        {
+                          category: "Sining at Kultura",
+                          items: [
+                            "Isang bihasang pintor at iskultor — lumikha ng maraming likhang sining",
+                            "Gumawa ng mga tula, dula, at sanaysay na pumupukaw ng damdaming makabayan",
+                            "Nagdisenyo ng mga costume at props para sa mga dula sa Dapitan",
+                            "Nag-ukit ng mga estatwa at bust mula sa kahoy at luwad",
+                            "Nagdokumento ng kultura at tradisyon ng mga Pilipino sa pamamagitan ng kanyang mga akda",
+                          ],
+                        },
+                        {
+                          category: "Pagkamatay at Pamana",
+                          items: [
+                            "Binitay noong Disyembre 30, 1896 sa Bagumbayan (ngayon Rizal Park)",
+                            "Ang kanyang kamatayan ang nagpasiklab ng Rebolusyong Pilipino ng 1896",
+                            "Naging simbolo ng paglaban para sa kalayaan at katarungan",
+                            "Ang kanyang mga isinulat ay pinag-aralan at pinagmulan ng inspirasyon ng mga sumunod na henerasyon",
+                            "Itinuturing na pambansang bayani ng Pilipinas — ang kanyang araw ng kamatayan ay pambansang holiday",
+                          ],
+                        },
+                      ].map((group) => (
+                        <div key={group.category} className="p-4 rounded-sm bg-accent/50 border border-border">
+                          <h4 className="text-foreground font-semibold text-xs uppercase tracking-wider mb-3 text-gold">
+                            {group.category}
+                          </h4>
+                          <ul className="space-y-2">
+                            {group.items.map((item, i) => (
+                              <li key={i} className="flex items-start gap-2">
+                                <span className="text-gold/40 mt-1 text-xs">✦</span>
+                                <span className="text-muted-foreground text-xs leading-relaxed">{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
       </AnimatedSection>

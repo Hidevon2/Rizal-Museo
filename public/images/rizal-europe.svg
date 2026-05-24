@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="bgEu" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d4c4a0"/>
+      <stop offset="100%" stop-color="#c4b490"/>
+    </linearGradient>
+    <filter id="noiseEu">
+      <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="4"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feBlend in="SourceGraphic" mode="multiply"/>
+    </filter>
+  </defs>
+
+  <rect width="400" height="300" fill="url(#bgEu)"/>
+
+  <!-- Sepia photo border -->
+  <rect x="10" y="10" width="380" height="280" fill="none" stroke="#3c2415" stroke-width="3"/>
+  <rect x="15" y="15" width="370" height="270" fill="none" stroke="#5c4434" stroke-width="0.5"/>
+  <rect x="5" y="5" width="390" height="290" fill="none" stroke="#3c2415" stroke-width="1"/>
+
+  <!-- European buildings silhouette -->
+  <g fill="#5c4a3a" opacity="0.3">
+    <rect x="30" y="100" width="40" height="150"/>
+    <rect x="75" y="80" width="35" height="170"/>
+    <rect x="115" y="90" width="30" height="160"/>
+    <rect x="150" y="70" width="45" height="180"/>
+    <rect x="200" y="85" width="35" height="165"/>
+    <rect x="240" y="95" width="30" height="155"/>
+    <rect x="275" y="75" width="40" height="175"/>
+    <rect x="320" y="90" width="50" height="160"/>
+  </g>
+
+  <!-- Window details -->
+  <g fill="#4a3a2a" opacity="0.2">
+    <rect x="160" y="85" width="8" height="12"/>
+    <rect x="175" y="85" width="8" height="12"/>
+    <rect x="160" y="105" width="8" height="12"/>
+    <rect x="175" y="105" width="8" height="12"/>
+  </g>
+
+  <!-- Street level -->
+  <rect x="0" y="250" width="400" height="50" fill="#4a3a2a" opacity="0.4"/>
+
+  <!-- Lamp post -->
+  <line x1="100" y1="150" x2="100" y2="230" stroke="#3c2415" stroke-width="2" opacity="0.4"/>
+  <circle cx="100" cy="148" r="5" fill="#c9a84c" opacity="0.2"/>
+
+  <!-- Rizal figure (small) -->
+  <g transform="translate(200,230)" fill="#3c2415" opacity="0.5">
+    <ellipse cx="0" cy="-12" rx="4" ry="5"/>
+    <rect x="-4" y="-8" width="8" height="15" rx="2"/>
+    <line x1="-4" y1="0" x2="-8" y2="10"/>
+    <line x1="4" y1="0" x2="8" y2="10"/>
+  </g>
+
+  <!-- Sepia overlay -->
+  <rect width="400" height="300" fill="#704214" opacity="0.08"/>
+
+  <!-- Texture -->
+  <rect width="400" height="300" fill="#704214" opacity="0.05" filter="url(#noiseEu)"/>
+
+  <!-- Label -->
+  <text x="200" y="285" text-anchor="middle" fill="#3c2415" font-family="Georgia, serif" font-size="9" font-style="italic" letter-spacing="1" opacity="0.5">Rizal sa Europa, 1885</text>
+</svg>

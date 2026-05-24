@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import AnimatedSection from "@/components/AnimatedSection";
 import MediaGallery from "@/components/MediaGallery";
 import { audioTracks, galleryItems, videoDocumentaries } from "@/data/multimedia";
 
 export default function MultimediaPage() {
   const [activeTab, setActiveTab] = useState<"audio" | "gallery" | "video">("video");
-  const [expandedVideo, setExpandedVideo] = useState<string | null>(null);
   const [expandedAudio, setExpandedAudio] = useState<string | null>(null);
 
   return (
@@ -62,28 +62,41 @@ export default function MultimediaPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.08 }}
-                  className="vintage-card overflow-hidden hover:border-gold/40 transition-all group"
+                  className="vintage-card overflow-hidden hover:border-gold/40 transition-all group cursor-pointer"
+                  onClick={() => window.open(video.embedUrl, "_blank", "noopener,noreferrer")}
                 >
-                  <div
-                    className="aspect-video bg-gradient-to-br from-gold/10 to-gold/30 flex items-center justify-center cursor-pointer relative"
-                    onClick={() => setExpandedVideo(expandedVideo === video.id ? null : video.id)}
-                  >
-                    <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      className="w-12 h-12 rounded-sm bg-gold/80 flex items-center justify-center"
-                    >
-                      <svg className="w-5 h-5 text-background ml-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
-                      </svg>
-                    </motion.div>
+                  <div className="aspect-video relative overflow-hidden bg-gradient-to-br from-gold/10 to-gold/30">
+                    {video.thumbnailUrl && (
+                      <Image
+                        src={video.thumbnailUrl}
+                        alt={video.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
-                    <span className="absolute bottom-2 right-2 text-muted-foreground text-[10px]">{video.duration}</span>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <motion.div
+                        whileHover={{ scale: 1.1 }}
+                        className="w-14 h-14 rounded-sm bg-gold/80 flex items-center justify-center shadow-lg"
+                      >
+                        <svg className="w-6 h-6 text-background ml-0.5" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                        </svg>
+                      </motion.div>
+                    </div>
+                    <span className="absolute bottom-2 right-2 bg-background/60 backdrop-blur-sm px-2 py-0.5 text-muted-foreground text-[10px] rounded-sm">
+                      {video.duration}
+                    </span>
                   </div>
                   <div className="p-4">
                     <h3 className="text-sm font-semibold text-foreground mb-1 group-hover:text-gold transition-colors">
                       {video.title}
                     </h3>
                     <p className="text-muted-foreground text-xs leading-relaxed line-clamp-2">{video.description}</p>
+                    <span className="mt-2 inline-flex items-center gap-1 text-gold text-[10px] uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
+                      Panoorin sa YouTube <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    </span>
                   </div>
                 </motion.div>
               ))}

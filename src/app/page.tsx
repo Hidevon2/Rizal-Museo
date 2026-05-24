@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import HeroSection from "@/components/HeroSection";
 import QuoteSection from "@/components/QuoteSection";
 import AnimatedSection from "@/components/AnimatedSection";
@@ -85,20 +86,17 @@ export default function Home() {
               viewport={{ once: true }}
               className="relative aspect-[3/4] vintage-border rounded-sm overflow-hidden"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-gold/20 via-gold/5 to-transparent rounded-sm" />
-              <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-card to-background rounded-sm">
-                <div className="text-center p-8">
-                  <motion.div
-                    animate={{ rotate: [0, 10, -10, 0] }}
-                    transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-                    className="text-8xl mb-4"
-                  >
-                    ☀️
-                  </motion.div>
-                  <p className="text-gold/60 text-sm italic font-display">
-                    &ldquo;Ang kabataan ay ang pag-asa ng bayan.&rdquo;
-                  </p>
-                </div>
+              <Image
+                src="/images/rizal-portrait.jpg"
+                alt="Dr. Jose Rizal"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-30" />
+              <div className="absolute bottom-4 left-4 right-4 text-center">
+                <p className="text-gold/60 text-xs italic font-display">
+                  &ldquo;Ang kabataan ay ang pag-asa ng bayan.&rdquo;
+                </p>
               </div>
             </motion.div>
           </div>

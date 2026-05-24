@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="skyFt" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d1628"/>
+      <stop offset="100%" stop-color="#1a2438"/>
+    </linearGradient>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5c5c4a"/>
+      <stop offset="100%" stop-color="#3c3c2a"/>
+    </linearGradient>
+    <filter id="noiseFt">
+      <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feBlend in="SourceGraphic" mode="multiply"/>
+    </filter>
+  </defs>
+
+  <rect width="400" height="300" fill="url(#skyFt)"/>
+
+  <!-- Stone wall -->
+  <rect x="0" y="120" width="400" height="180" fill="url(#wall)"/>
+
+  <!-- Stone texture lines -->
+  <g stroke="#4a4a3a" stroke-width="0.5" opacity="0.4">
+    <line x1="0" y1="150" x2="400" y2="150"/>
+    <line x1="0" y1="180" x2="400" y2="180"/>
+    <line x1="0" y1="210" x2="400" y2="210"/>
+    <line x1="0" y1="240" x2="400" y2="240"/>
+    <line x1="0" y1="270" x2="400" y2="270"/>
+    <line x1="50" y1="120" x2="50" y2="150"/>
+    <line x1="120" y1="120" x2="120" y2="150"/>
+    <line x1="200" y1="120" x2="200" y2="150"/>
+    <line x1="280" y1="120" x2="280" y2="150"/>
+    <line x1="350" y1="120" x2="350" y2="150"/>
+  </g>
+
+  <!-- Tower -->
+  <rect x="140" y="40" width="120" height="90" fill="#4a4a3a" stroke="#6a6a5a" stroke-width="0.5"/>
+  <rect x="155" y="55" width="30" height="40" fill="#2a2a1a" rx="1"/>
+  <rect x="215" y="55" width="30" height="40" fill="#2a2a1a" rx="1"/>
+  <rect x="185" y="100" width="30" height="30" fill="#2a2a1a"/>
+  <!-- Window bars -->
+  <line x1="170" y1="55" x2="170" y2="95" stroke="#c9a84c" stroke-width="0.5" opacity="0.5"/>
+  <line x1="230" y1="55" x2="230" y2="95" stroke="#c9a84c" stroke-width="0.5" opacity="0.5"/>
+
+  <!-- Flag -->
+  <path d="M200,40 L200,10 L220,18 L200,25" fill="#8b1a1a" stroke="#c9a84c" stroke-width="0.3"/>
+
+  <!-- Archway -->
+  <path d="M160,300 L160,240 Q200,220 240,240 L240,300" fill="#1a1a1a" stroke="#6a6a5a" stroke-width="1"/>
+
+  <!-- Ground -->
+  <rect x="0" y="285" width="400" height="15" fill="#1a0f0a"/>
+
+  <!-- Mesh/texture -->
+  <rect width="400" height="300" fill="#704214" opacity="0.03" filter="url(#noiseFt)"/>
+
+  <!-- Label -->
+  <text x="200" y="295" text-anchor="middle" fill="#c9a84c" font-family="Georgia, serif" font-size="8" letter-spacing="2" opacity="0.5">FORT SANTIAGO · INTRAMUROS</text>
+</svg>

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="bgFam" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d4c4a0"/>
+      <stop offset="100%" stop-color="#b4a480"/>
+    </linearGradient>
+    <filter id="noiseFam">
+      <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="4"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feBlend in="SourceGraphic" mode="multiply"/>
+    </filter>
+  </defs>
+
+  <rect width="400" height="300" fill="url(#bgFam)"/>
+
+  <!-- Photo border -->
+  <rect x="12" y="12" width="376" height="276" fill="none" stroke="#3c2415" stroke-width="2.5"/>
+  <rect x="17" y="17" width="366" height="266" fill="none" stroke="#5c4434" stroke-width="0.5"/>
+  <rect x="7" y="7" width="386" height="286" fill="none" stroke="#3c2415" stroke-width="0.5"/>
+
+  <!-- Family group silhouette -->
+  <g fill="#4a3a2a" opacity="0.35">
+    <!-- Father -->
+    <g transform="translate(120,190)">
+      <ellipse cx="0" cy="-20" rx="8" ry="10"/>
+      <rect x="-6" y="-12" width="12" height="22" rx="3"/>
+    </g>
+    <!-- Mother -->
+    <g transform="translate(160,192)">
+      <ellipse cx="0" cy="-18" rx="7" ry="9"/>
+      <path d="M-5,-10 L-6,20 L6,20 L5,-10 Z"/>
+      <path d="M-6,5 Q-15,-5 -12,10" fill="none" stroke="#4a3a2a" stroke-width="1"/>
+    </g>
+    <!-- Child 1 -->
+    <g transform="translate(200,200)">
+      <ellipse cx="0" cy="-12" rx="5" ry="6"/>
+      <rect x="-4" y="-7" width="8" height="15" rx="2"/>
+    </g>
+    <!-- Child 2 -->
+    <g transform="translate(230,205)">
+      <ellipse cx="0" cy="-10" rx="4" ry="5"/>
+      <rect x="-3" y="-6" width="6" height="12" rx="2"/>
+    </g>
+    <!-- Child 3 -->
+    <g transform="translate(260,208)">
+      <ellipse cx="0" cy="-8" rx="3.5" ry="4"/>
+      <rect x="-3" y="-5" width="6" height="10" rx="2"/>
+    </g>
+  </g>
+
+  <!-- Vintage oval frame decoration -->
+  <ellipse cx="200" cy="130" rx="90" ry="100" fill="none" stroke="#3c2415" stroke-width="0.5" opacity="0.1"/>
+
+  <!-- Sepia overlay -->
+  <rect width="400" height="300" fill="#704214" opacity="0.08"/>
+
+  <!-- Texture -->
+  <rect width="400" height="300" fill="#704214" opacity="0.06" filter="url(#noiseFam)"/>
+
+  <!-- Label -->
+  <text x="200" y="280" text-anchor="middle" fill="#3c2415" font-family="Georgia, serif" font-size="9" font-style="italic" letter-spacing="1" opacity="0.4">Pamilya Rizal, Calamba</text>
+</svg>

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function HeroSection() {
   const [mounted, setMounted] = useState(false);
@@ -9,7 +10,14 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-card to-background" />
+      <Image
+        src="/images/bg-home.jpg"
+        alt=""
+        fill
+        className="object-cover"
+        priority
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80" />
 
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/20 rounded-full blur-3xl" />
@@ -22,7 +30,7 @@ export default function HeroSection() {
           animate={mounted ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <span className="inline-block px-4 py-1.5 rounded-sm bg-gold/10 border border-gold/20 text-gold text-xs font-medium tracking-widest uppercase mb-6">
+          <span className="inline-block px-5 py-2 rounded-sm bg-gold/10 border border-gold/20 text-gold text-sm font-medium tracking-widest uppercase mb-6">
             Pambansang Bayani ng Pilipinas
           </span>
         </motion.div>
@@ -41,7 +49,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={mounted ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-4 leading-relaxed"
+          className="text-muted-foreground text-base sm:text-lg md:text-xl max-w-3xl mx-auto mb-6 leading-relaxed"
         >
           Polymath, nobelista, makabayan, at ang pinaka-ginagalang na tao sa kasaysayan ng Pilipinas.
           Ang kanyang mga akda ay pumukaw sa hangarin ng isang bansa para sa kalayaan at pagkakakilanlan.
@@ -51,7 +59,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={mounted ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="text-gold-dark/50 text-xs italic mb-10"
+          className="text-gold-dark/100 text-sm italic mb-16"
         >
           Hunyo 19, 1861 — Disyembre 30, 1896
         </motion.p>
@@ -76,22 +84,7 @@ export default function HeroSection() {
           </a>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={mounted ? { opacity: 1 } : {}}
-          transition={{ delay: 1.5, duration: 0.6 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-            className="text-muted-foreground/30"
-          >
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </motion.div>
-        </motion.div>
+
       </div>
     </section>
   );
